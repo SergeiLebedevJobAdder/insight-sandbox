@@ -99,6 +99,39 @@
           }
         }
       }
+    },
+    "insight": {
+      "projectType": "library",
+      "root": "projects/insight",
+      "sourceRoot": "projects/insight/src",
+      "prefix": "insight",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/insight/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/insight/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/insight/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/insight/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
     }
   }
 }

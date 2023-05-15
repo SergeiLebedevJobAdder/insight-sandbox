@@ -1,0 +1,23 @@
+<a
+  class="r-job-"
+  nz-tooltip="Click to view a Chart"
+  nz-button
+  nzType="link"
+  nz-popover
+  [nzPopoverContent]="contentTemplate"
+  nzPopoverPlacement="bottomLeft"
+  nzPopoverTrigger="click"
+  nzPopoverOverlayClassName="sc-popover-style-reset"
+  [(nzPopoverVisible)]="showPopover"
+  (nzPopoverVisibleChange)="resetPopover($event)"
+>
+  <i nz-icon nzType="line-chart" nzTheme="outline"></i>
+  Random Chart
+</a>
+
+<ng-template #contentTemplate>
+  <div class="connection-map-chart">
+    <!--    <app-line-chart [data]="data"></app-line-chart>-->
+    <insight-random-chart *ngIf="showPopover"></insight-random-chart>
+  </div>
+</ng-template>
